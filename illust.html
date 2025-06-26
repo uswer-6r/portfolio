@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Иллюстрации</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+</head>
+<style>
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      max-width: 800px;
+      margin: auto;
+      overflow: hidden;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+    .carousel img {
+      width: 250px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 8px;
+      height: 250px;
+      object-fit: cover;
+    }
+    button {
+      font-size: 24px;
+      padding: 3px;
+      width: 50px;
+      height: 50px;
+      margin: 10px 10px;
+      cursor: pointer;
+      border-radius: 60px;
+      outline: none;
+      background-color: rgba(255, 255, 255, 0);
+      border: 1px solid #a55ed2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a55ed2;
+    }
+    .illst{
+        height: 100vh;
+    }
+    .text{
+        text-align: center;
+        padding-bottom: 50px;
+    }
+</style>
+<body>
+    <section id="start-page" class="illst">
+        <div class="container">
+            <a href="index.html" class="back">Назад</a>
+            <h1 class="title">Иллюстрации</h1>
+            <p class="text">Ниже представлены мои законченные работы</p>
+            <div class="carousel-container">
+                <div class="carousel" id="carousel">
+                    <a href="img/2.png" data-fancybox="gallery"><img src="img/2.png" alt="2"></a>
+                    <a href="img/3.png" data-fancybox="gallery"><img src="img/3.png" alt="3"></a>
+                    <a href="img/4.png" data-fancybox="gallery"><img src="img/4.png" alt="4"></a>
+                    <a href="img/6.png" data-fancybox="gallery"><img src="img/6.png" alt="6"></a>
+                    <a href="img/7.png" data-fancybox="gallery"><img src="img/7.png" alt="7"></a>
+                    <a href="img/5.png" data-fancybox="gallery"><img src="img/5.png" alt="5"></a>
+                    <a href="img/1.png" data-fancybox="gallery"><img src="img/1.png" alt="1"></a>
+                </div>
+            <button onclick="prev()">←</button>
+            <button onclick="next()">→</button>
+            </div>
+        </div>
+        <div class="bg-blur blur-1"></div>
+        <div class="bg-blur blur-2"></div>
+        <div class="bg-blur blur-3"></div>
+
+    </section>
+</body>
+<script>
+  const carousel = document.getElementById('carousel');
+  let index = 0;
+  function updateCarousel() {
+    const offset = -index * 260;
+    carousel.style.transform = `translateX(${offset}px)`;
+  }
+  function next() {
+    if (index < carousel.children.length - 3) {
+      index++;
+      updateCarousel();
+    }
+  }
+  function prev() {
+    if (index > 0) {
+      index--;
+      updateCarousel();
+    }
+  }
+</script>
+</html>
